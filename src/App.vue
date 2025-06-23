@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { computed } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
+
+const route = useRoute()
+const showDefaultLayout = computed(() => route.name !== 'davis')
 </script>
 
 <template>
-  <header>
+  <header v-if="showDefaultLayout">
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
